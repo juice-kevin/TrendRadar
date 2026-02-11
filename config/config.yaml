@@ -55,6 +55,10 @@ schedule:
 platforms:
   enabled: true                         # 是否启用热榜平台抓取
   sources:
+    - id: "douyin"
+      name: "抖音"
+    - id: "weibo"
+      name: "微博"
     - id: "toutiao"
       name: "今日头条"
     - id: "baidu"
@@ -71,10 +75,6 @@ platforms:
       name: "凤凰网"
     - id: "tieba"
       name: "贴吧"
-    - id: "weibo"
-      name: "微博"
-    - id: "douyin"
-      name: "抖音"
     - id: "zhihu"
       name: "知乎"
 
@@ -166,11 +166,11 @@ report:
   # 关键词组排序方式（仅 display_mode: keyword 时生效）
   # true: 按 frequency_words.txt 中的定义顺序排列
   # false: 按匹配到的热点条数排序（条数多的在前）
-  sort_by_position_first: false
+  sort_by_position_first: true
 
-  rank_threshold: 5                   # 排名高亮阈值
+  rank_threshold: 15                   # 排名高亮阈值
 
-  max_news_per_keyword: 0             # 每个关键词最大显示数量（0=不限制）
+  max_news_per_keyword: 15             # 每个关键词最大显示数量（0=不限制）
 
 
 # ===============================================================
@@ -218,7 +218,7 @@ display:
   #   - AI 分析：由 ai.include_standalone 开关控制，将完整数据送入 AI 做深度分析
   # 两者共享此处的平台/RSS 配置，但开关互相独立（可只开 AI 分析、不推送展示）
   standalone:
-    platforms: ["zhihu", "wallstreetcn-hot"]     # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
+    platforms: ["douyin"] # 热榜平台 ID 列表（如 ["zhihu", "weibo"]）
     rss_feeds: []                     # RSS 源 ID 列表（如 ["hacker-news"]）
     max_items: 20                     # 每个源最多展示条数（0=不限制）
 
